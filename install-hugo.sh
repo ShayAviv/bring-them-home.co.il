@@ -44,9 +44,20 @@ do
     fi
 done
 
+# Update node
+if [ `node -v` != 'v20.5.0' ]; then
+    echo -e "$Info Updating node..."
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash &> /dev/null
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+    nvm install 20.5.0 &> /dev/null
+    nvm use 20.5.0 &> /dev/null
+fi
+
 # install npm dependencies
 echo -e "$Info Installing npm dependencies..."
-npm install && npm update &> /dev/null || { echo -e "$Error Installation of \"npm dependencies\" was not successful."; exit 1; }
+npm install &> /dev/null && npm update &> /dev/null || { echo -e "$Error Installation of \"npm dependencies\" was not successful."; exit 1; }
 
 # how to start
 echo -e "$Info Run \"hugo server\" to view the website."
