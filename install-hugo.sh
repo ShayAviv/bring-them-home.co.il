@@ -26,7 +26,7 @@ do
     fi
 done
 
-$PackageManager update
+$PackageManager update &> /dev/null
 
 for d in ${dependencies[@]}
 do
@@ -34,13 +34,13 @@ do
         echo "Dependency \"$d\" missing, installing now."
 
         # install dependency
-        $PackageManager install -yq $d || echo "Installation of \"$d\" was not successful."
+        $PackageManager install -y $d & /dev/null || echo "Installation of \"$d\" was not successful."
     fi
 done
 
 # install npm dependencies
 echo "installing npm dependencies"
-npm --silent install || echo "Installation of \"npm dependencies\" was not successful."
+npm install &> /dev/null || echo "Installation of \"npm dependencies\" was not successful."
 
 # start hugo server
-hugo server --config hugo.yaml
+hugo server

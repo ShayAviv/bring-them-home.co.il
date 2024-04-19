@@ -31,14 +31,6 @@ tags: כללי
 
 <div style="direction: ltr !important;">
 
-```sh
-git clone git@github.com:<UserName>/bring-them-home.co.il.git
-```
-
-</div>
-
-או
-
 <div style="direction: ltr !important;">
 
 ```sh
