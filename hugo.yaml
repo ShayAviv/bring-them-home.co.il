@@ -74,7 +74,7 @@ menu:
       url: /categories/נעדרים/
       weight: 20
     - identifier: contact
-      name: צרו קשר
+      name: צור קשר
       url: /contact/
       weight: 30
   footer:
@@ -87,7 +87,7 @@ menu:
       url: /categories/נעדרים/
       weight: 20
     - identifier: contact
-      name: צרו קשר
+      name: צור קשר
       url: /contact/
       weight: 30
 
