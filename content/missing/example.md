@@ -3,7 +3,7 @@ title: "דוגמא"
 date: 2024-04-19T19:34:08+03:00
 draft: false
 language: he
-featured_image: ../assets/images/missing-images/daniel-peretzt.jpeg
+featured_image: ../assets/images/missing-images/example.jpg
 summary: זה דוגמא לתיאור שהיה יכול להיות
 author: נועם אלום
 categories: נעדרים
