@@ -47,8 +47,7 @@ markup:
 
 params:
   author: נועם אלום
-  authorimage: ../assets/images/global/logo.png
-  og_image: /images/tailbliss-cover.png
+  authorimage: /assets/images/global/logo.png
   moto: "ה-7 באוקטובר, 2023 ייכתב לעד בדפי ההיסטוריה כיום עצוב מאוד עבור האנושות, מדינת ישראל וכלל הקהילה היהודית."
   description: "אתר זה נועד לספר את הסיפור של מאות תינוקות, ילדים, צעירים, אמהות, גברים וקשישים."
   disable_theme_toggle: false
