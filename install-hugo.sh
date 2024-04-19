@@ -28,12 +28,13 @@ do
         echo "Dependency \"$d\" missing, installing now."
 
         # install dependency
-        $PackageManager install $d
+        $PackageManager install -yq $d || echo "Installation of \"$d\" was not successful."
     fi
 done
 
 # install npm dependencies
-npm install
+echo "installing npm dependencies"
+npm --silent install || echo "Installation of \"npm dependencies\" was not successful."
 
 # start hugo server
 hugo server
