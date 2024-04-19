@@ -2,6 +2,12 @@
 #
 # Install hugo && npm dependencies
 
+# check if user is running as root
+if [ `id -u` -ne 0 ]; then
+    echo "Please run as root!"
+    exit 1
+fi
+
 # check if hugo/npm is installed
 dependencies=("hugo" "npm")
 
@@ -37,4 +43,4 @@ echo "installing npm dependencies"
 npm --silent install || echo "Installation of \"npm dependencies\" was not successful."
 
 # start hugo server
-hugo server
+hugo server --config hugo.yaml
