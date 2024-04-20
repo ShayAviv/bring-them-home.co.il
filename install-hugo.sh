@@ -47,10 +47,10 @@ done
 # Update node
 if [ `node -v` != 'v20.5.0' ]; then
     echo -e "$Info Updating node..."
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash &> /dev/null
-    export NVM_DIR="$HOME/.nvm"
+    curl -s -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash &> /dev/null
+    export NVM_DIR="/home/noam/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
     nvm install 20.5.0 &> /dev/null
     nvm use 20.5.0 &> /dev/null
 fi
