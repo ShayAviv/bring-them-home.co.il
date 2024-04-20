@@ -1,5 +1,3 @@
-# Install hugo && npm dependencies
-
 # Define ANSI-like color escape sequences for PowerShell
 $InfoColor = [ConsoleColor]::Cyan
 $ErrorColor = [ConsoleColor]::Red
@@ -14,32 +12,38 @@ function Write-Error {
     Write-Host "[ERROR] $Message" -ForegroundColor $ErrorColor
 }
 
-# Check if npm is installed
-if (-not (Get-Command npm -ErrorAction SilentlyContinue)) {
+# Function to check if a command exists
+function CommandExists {
+    param([string]$Command)
+    return (Get-Command $Command -ErrorAction SilentlyContinue) -ne $null
+}
+
+# Install npm if not already installed
+if (-not (CommandExists "npm")) {
     Write-Info "Installing npm..."
-    # Download and install npm using Chocolatey (assuming Chocolatey is available)
-    Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-    choco install npm -y
+    Invoke-WebRequest "https://nodejs.org/dist/latest/node-v14.19.0-x64.msi" -OutFile "$env:TEMP\node.msi"
+    Start-Process -FilePath "$env:TEMP\node.msi" -ArgumentList "/quiet" -Wait
 }
 
-# Check if hugo is installed
-if (-not (Get-Command hugo -ErrorAction SilentlyContinue)) {
+# Install Hugo if not already installed
+if (-not (CommandExists "hugo")) {
     Write-Info "Installing Hugo..."
-    # Download and install Hugo using Chocolatey
-    choco install hugo -y
+    Invoke-WebRequest "https://github.com/gohugoio/hugo/releases/download/v0.92.0/hugo_extended_0.92.0_Windows-64bit.zip" -OutFile "$env:TEMP\hugo.zip"
+    Expand-Archive -Path "$env:TEMP\hugo.zip" -DestinationPath "$env:ProgramFiles\Hugo"
+    $env:Path += ";$env:ProgramFiles\Hugo"
 }
 
-# Check if node.js version 20.5.0 is installed using nvm
-if (-not (node -v | Select-String 'v20.5.0' -Quiet)) {
-    Write-Info "Installing Node.js version 20.5.0 using nvm..."
-    # Install or update nvm
+# Install Node.js using NVM if Node.js version 20.5.0 is not installed
+$desiredNodeVersion = "20.5.0"
+if (-not (CommandExists "node" -and (node -v) -eq "v$desiredNodeVersion")) {
+    Write-Info "Installing Node.js version $desiredNodeVersion using NVM..."
     $env:NVM_HOME = "$env:USERPROFILE\.nvm"
-    $env:NODE_VERSION = "20.5.0"
-    iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.ps1'))
-
-    # Install Node.js version 20.5.0 using nvm
-    nvm install $env:NODE_VERSION
-    nvm use $env:NODE_VERSION
+    $env:NVM_SYMLINK = "$env:USERPROFILE\AppData\Roaming\nvm"
+    $nvmUrl = "https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.ps1"
+    Invoke-WebRequest -Uri $nvmUrl -OutFile "$env:TEMP\nvm-install.ps1"
+    & "$env:TEMP\nvm-install.ps1" | Invoke-Expression
+    nvm install $desiredNodeVersion
+    nvm use $desiredNodeVersion
 }
 
 # Install npm dependencies for the project
