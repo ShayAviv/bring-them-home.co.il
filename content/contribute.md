@@ -31,8 +31,6 @@ tags: כללי
 
 <div style="direction: ltr !important;">
 
-<div style="direction: ltr !important;">
-
 ```sh
 git clone https://github.com/<UserName>/bring-them-home.co.il.git
 ```
@@ -46,7 +44,7 @@ git clone https://github.com/<UserName>/bring-them-home.co.il.git
 <div style="direction: ltr !important;">
 
 ```ps
-./install-hugo.ps   
+./install-hugo.ps1  
 ```
 
 </div>
@@ -56,7 +54,7 @@ git clone https://github.com/<UserName>/bring-them-home.co.il.git
 <div style="direction: ltr !important;">
 
 ```sh
-./install-hugo.sh
+sudo ./install-hugo.sh && exit 0
 ```
 
 </div>

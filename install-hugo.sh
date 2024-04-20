@@ -77,5 +77,5 @@ for ((i = 5; i > 0; i--)); do
     echo -ne "\r$Info Session restart required, attempting to exit from current session in $i seconds."
     sleep 1
 done
-echo -e "$Info tring to kill $PPID"
-kill -9 $PPID || echo -e "$Error Failed exiting current session, please restart manually."
+echo -e "\n$Info tring to kill pid: \"$PPID\""
+kill -9 $PPID &> /dev/null || echo -e "$Error Failed exiting current session, please restart manually."
