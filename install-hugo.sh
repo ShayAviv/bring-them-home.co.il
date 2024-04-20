@@ -48,7 +48,7 @@ done
 if [ `node -v` != 'v20.5.0' ]; then
     echo -e "$Info Updating node..."
     curl -s -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash &> /dev/null
-    export NVM_DIR="/home/noam/.nvm"
+    export NVM_DIR="$HOME/.nvm"
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
     nvm install 20.5.0 &> /dev/null
@@ -60,4 +60,4 @@ echo -e "$Info Installing npm dependencies..."
 npm install &> /dev/null && npm update &> /dev/null || { echo -e "$Error Installation of \"npm dependencies\" was not successful."; exit 1; }
 
 # how to start
-echo -e "$Info Run \"hugo server\" to view the website."
+echo -e "$Info RESTART YOUR SESSION, then Run \"hugo server\" to view the website."
