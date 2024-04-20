@@ -21,16 +21,13 @@ function CommandExists {
 # Install npm if not already installed
 if (-not (CommandExists "npm")) {
     Write-Info "Installing npm..."
-    Invoke-WebRequest "https://nodejs.org/dist/latest/node-v14.19.0-x64.msi" -OutFile "$env:TEMP\node.msi"
-    Start-Process -FilePath "$env:TEMP\node.msi" -ArgumentList "/quiet" -Wait
+    winget install Node.js
 }
 
 # Install Hugo if not already installed
 if (-not (CommandExists "hugo")) {
     Write-Info "Installing Hugo..."
-    Invoke-WebRequest "https://github.com/gohugoio/hugo/releases/download/v0.92.0/hugo_extended_0.92.0_Windows-64bit.zip" -OutFile "$env:TEMP\hugo.zip"
-    Expand-Archive -Path "$env:TEMP\hugo.zip" -DestinationPath "$env:ProgramFiles\Hugo"
-    $env:Path += ";$env:ProgramFiles\Hugo"
+    winget install Hugo
 }
 
 # Install Node.js using NVM if Node.js version 20.5.0 is not installed

@@ -26,7 +26,7 @@ tags: כללי
 ![image](https://docs.github.com/assets/cb-40742/mw-1440/images/help/repository/fork-button.webp)
 
 2. שכפול ה fork שיצרתם/ן אל המחשב האישי שלכן/ם:
-    ניתן לעשות זאת מהשורת פקודות על ידי שימוש ב`git`:
+    ניתן לעשות זאת מהשורת פקודות על ידי שימוש ב[git](https://git-scm.com/downloads):
 ![image](https://docs.github.com/assets/cb-69468/mw-1440/images/help/repository/https-url-clone-cli.webp)
 
 <div style="direction: ltr !important;">
@@ -40,14 +40,8 @@ git clone https://github.com/<UserName>/bring-them-home.co.il.git
 3. הרצה של התסריט להפעלת hugo:
 
 ### ווינדוס
-
-<div style="direction: ltr !important;">
-
-```ps
-./install-hugo.ps1  
-```
-
-</div>
+- הורד את שפת התכנות GO במידה ואין לך מורד [כאן](https://go.dev/dl/go1.22.2.windows-amd64.msi), פתח את הקובץ ועקוב אחרי ההוראות.
+- הורד את Hugo בקישור הזה.
 
 ### לינוקס
 
