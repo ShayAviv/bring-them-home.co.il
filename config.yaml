@@ -77,6 +77,10 @@ menu:
       name: צור קשר
       url: /contact/
       weight: 30
+    - identifier: contribute
+      name: ?קיצד ניתן לעזור
+      url: /contribute/
+      weight: 40
   footer:
     - identifier: about
       name: עלינו
@@ -90,6 +94,10 @@ menu:
       name: צור קשר
       url: /contact/
       weight: 30
+    - identifier: contribute
+      name: ?קיצד ניתן לעזור
+      url: /contribute/
+      weight: 40
 
 markup:
   goldmark:
