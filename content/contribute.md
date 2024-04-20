@@ -1,5 +1,5 @@
 ---
-title: "קיצד ניתן לעזור?"
+title: "כיצד ניתן לעזור?"
 date: 2024-04-19T23:20:08+03:00
 draft: false
 language: he

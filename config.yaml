@@ -78,7 +78,7 @@ menu:
       url: /contact/
       weight: 30
     - identifier: contribute
-      name: ?קיצד ניתן לעזור
+      name: ?כיצד ניתן לעזור
       url: /contribute/
       weight: 40
   footer:
@@ -95,7 +95,7 @@ menu:
       url: /contact/
       weight: 30
     - identifier: contribute
-      name: ?קיצד ניתן לעזור
+      name: ?כיצד ניתן לעזור
       url: /contribute/
       weight: 40
 
