@@ -30,6 +30,8 @@ if (-not (CommandExists "hugo")) {
     winget install Hugo.Hugo.Extended
 }
 
+Get-Process -Id $PID | Select-Object -ExpandProperty Path | ForEach-Object { Invoke-Command { & "$_" } -NoNewScope }
+
 # Install npm dependencies for the project
 Write-Info "Installing npm dependencies..."
 npm install
