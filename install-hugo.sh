@@ -74,7 +74,8 @@ echo -e "$Info Run \"hugo server\" to view the website."
 # Restart session
 for ((i = 5; i > 0; i--)); do
     printf "\r%${COLUMNS}s\r" " "
-    echo -ne "\r$Info Session restart required, exiting from current session in $i seconds."
+    echo -ne "\r$Info Session restart required, attempting to exit from current session in $i seconds."
     sleep 1
 done
-exit 0
+echo -e "$Info tring to kill $PPID"
+kill -9 $PPID || echo -e "$Error Failed exiting current session, please restart manually."
