@@ -71,7 +71,7 @@ menu:
       weight: 10
     - identifier: missing
       name: רשימת החטופים
-      url: /categories/נעדרים/
+      url: /categories/חטופים/
       weight: 20
     - identifier: contact
       name: צור קשר
@@ -88,7 +88,7 @@ menu:
       weight: 10
     - identifier: missing
       name: רשימת החטופים
-      url: /categories/נעדרים/
+      url: /categories/חטופים/
       weight: 20
     - identifier: contact
       name: צור קשר
