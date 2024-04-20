@@ -30,11 +30,18 @@ if (-not (CommandExists "hugo")) {
     winget install Hugo.Hugo.Extended
 }
 
-Get-Process -Id $PID | Select-Object -ExpandProperty Path | ForEach-Object { Invoke-Command { & "$_" } -NoNewScope }
+# Launch new PowerShell session to execute npm install and instructions
+Get-Process -Id $PID | ForEach-Object {
+    $processPath = $_.Path
+    Invoke-Command -ScriptBlock {
+        param($path)
 
-# Install npm dependencies for the project
-Write-Info "Installing npm dependencies..."
-npm install
+        # Install npm dependencies for the project
+        Write-Info "Installing npm dependencies..."
+        npm install
 
-# Provide instructions
-Write-Info "Run 'hugo server' to view the website."
+        # Provide instructions
+        Write-Info "Run 'hugo server' to view the website."
+
+    } -ArgumentList $processPath -NoNewScope
+}
